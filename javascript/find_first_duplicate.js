@@ -1,5 +1,11 @@
-function findFirstDuplicate(arr) {
-  // type your code here
+const findFirstDuplicate = (arr) => {
+  let dupeMap = {}
+  let minIndex = arr.length === 1 || arr.length === 0 ? -1 : 
+    arr.reduce((pi, c, i) => {
+      dupeMap[c] = dupeMap[c] !== undefined ? {index: i, value: Infinity} : {index: i, value: c}
+      return dupeMap[c].value === Infinity && (pi === -1 || pi > dupeMap[c].index) ? dupeMap[c].index : pi
+    }, -1)
+  return arr[minIndex] === undefined ? -1 : arr[minIndex]
 }
 
 if (require.main === module) {
