@@ -23,3 +23,22 @@ module.exports = findFirstDuplicate;
 
 // Please add your pseudocode to this file
 // And a written explanation of your solution
+
+/**
+ * We want to first create a map to store occurrences
+ * of a given number. If we have an empty array or
+ * an array of one number, there are no duplicates
+ * so we return -1. Otherwise, we take the array and
+ * reduce it to a minimum (i.e. first) index of the
+ * duplicate. We iterate and store each unique number
+ * in the map, its latest index and a value. For
+ * each number's first occurence we store the index
+ * and the value of the number. For the second
+ * occurrence of a number we store the latest index
+ * and then set the value to Infinity. If we encounter
+ * a duplicate, and if its index is less than the 
+ * previous index, we return it. Otherwise, we return
+ * the previous index. If the minimum or first index
+ * is associated with an element we return it,
+ * otherwise we return -1.
+ */
